@@ -11,6 +11,10 @@ var Input = {
   right: false,
   jump: false,
   restart: false
+  fire: false,    // F key  
+  reload: false,  // Q key  
+  mouseX: 0,      // where the mouse is on the canvas  
+  mouseY: 0  
 };
 
 // Called whenever a key goes DOWN.
@@ -19,6 +23,8 @@ window.addEventListener("keydown", function (event) {
   // stop the arrow keys and space from scrolling the page
   if (["ArrowLeft", "ArrowRight", "ArrowUp", " "].indexOf(event.key) >= 0) {
     event.preventDefault();
+      if (key === "f" || key === "F") { Input.fire = isDown; }  
+  if (key === "q" || key === "Q") { Input.reload = isDown; }
   }
 });
 

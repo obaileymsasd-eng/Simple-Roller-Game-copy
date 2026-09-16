@@ -34,4 +34,9 @@ var CONFIG = {
 
   // --- rules ----------------------------------------------------------
   START_LEVEL: 0      // which level in data/levels.json to load first
+
+  //---the blaster-------------------------------------------------
+   MAG_SIZE: 4,        // shots before you must reload  
+  RELOAD_FRAMES: 120, // about 2 seconds (60 frames per second)  
+  BULLET_SPEED: 12    // how fast the laser ball travels  
 };
