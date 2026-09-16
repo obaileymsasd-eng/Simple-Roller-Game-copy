@@ -43,9 +43,11 @@ Draw.everything = function () {
   ctx.translate(-Draw.cameraX, 0);
 
   Draw.world();
+  Bullets.draw();   // laser balls scroll with the world 
   Draw.player();
 
   ctx.restore();
+  Bullets.drawHud();  // ammo counter stays fixed on screen  
 };
 
 // Draw every grid square that is currently on screen.
