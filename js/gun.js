@@ -89,7 +89,7 @@ Bullets.update = function () {
   
 Bullets.draw = function () {  
   var ctx = Draw.ctx;  
-  ctx.fillStyle = "#000000";  
+  ctx.fillStyle = "#101852";  
   for (var i = 0; i < Bullets.list.length; i++) {  
     var b = Bullets.list[i];  
     ctx.beginPath();  
