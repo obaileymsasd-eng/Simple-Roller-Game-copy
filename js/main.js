@@ -14,3 +14,9 @@ Level.loadData(function () {
   Game.startLevel(CONFIG.START_LEVEL);
   Game.loop();
 });
+// track the mouse position over the canvas  
+Draw.canvas.addEventListener("mousemove", function (event) {  
+  var rect = Draw.canvas.getBoundingClientRect();  
+  Input.mouseX = event.clientX - rect.left;  
+  Input.mouseY = event.clientY - rect.top;  
+});  
