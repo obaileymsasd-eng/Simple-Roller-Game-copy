@@ -10,7 +10,7 @@ var Input = {
   left: false,
   right: false,
   jump: false,
-  restart: false
+  restart: false,
   fire: false,    // F key  
   reload: false,  // Q key  
   mouseX: 0,      // where the mouse is on the canvas  
@@ -23,8 +23,7 @@ window.addEventListener("keydown", function (event) {
   // stop the arrow keys and space from scrolling the page
   if (["ArrowLeft", "ArrowRight", "ArrowUp", " "].indexOf(event.key) >= 0) {
     event.preventDefault();
-      if (key === "f" || key === "F") { Input.fire = isDown; }  
-  if (key === "q" || key === "Q") { Input.reload = isDown; }
+
   }
 });
 
@@ -40,4 +39,7 @@ function setKey(key, isDown) {
   if (key === "ArrowRight" || key === "d" || key === "D") { Input.right = isDown; }
   if (key === "ArrowUp"    || key === " " || key === "w" || key === "W") { Input.jump = isDown; }
   if (key === "r" || key === "R") { Input.restart = isDown; }
+    if (key === "f" || key === "F") { Input.fire = isDown; }  
+  if (key === "q" || key === "Q") { Input.reload = isDown; }  
+
 }
