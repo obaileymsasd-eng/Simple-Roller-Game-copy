@@ -33,7 +33,7 @@ var CONFIG = {
                       // 0 = dead center, 1 = right on the edge
 
   // --- rules ----------------------------------------------------------
-  START_LEVEL: 0      // which level in data/levels.json to load first
+  START_LEVEL: 0,      // which level in data/levels.json to load first
 
   //---the blaster-------------------------------------------------
    MAG_SIZE: 4,        // shots before you must reload  
