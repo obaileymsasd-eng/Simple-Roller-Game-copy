@@ -34,8 +34,6 @@ Game.update = function () {
   if (Input.restart) {
     Game.startLevel(Game.levelNumber);
     return;
-      Gun.reset();   // refill the magazine when the level restarts  
-  Game.mode = "playing";
   }
 
   // If we are not playing, nothing moves. We just wait for R.
