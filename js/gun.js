@@ -36,6 +36,7 @@ Gun.shoot = function () {
 };  
   
 Gun.update = function () {  
+
   // act only on the frame the key is first pressed, not every frame it is held  
   var fireJustPressed = Input.fire && !Gun.fireWasDown;  
   var reloadJustPressed = Input.reload && !Gun.reloadWasDown;  
@@ -44,12 +45,8 @@ Gun.update = function () {
     if (fireJustPressed && Gun.ammo > 0) {  
       Gun.shoot();  
       Gun.ammo = Gun.ammo - 1;  
-      if (Gun.ammo <= 0) {  
-        Gun.state = "reloading"; // last shot forces the reload  
-        Gun.timer = CONFIG.RELOAD_FRAMES;  
-      }  
     } else if (reloadJustPressed) {  
-      Gun.state = "reloading";  
+      Gun.state = "reloading"; // reload is ALWAYS the player's choice  
       Gun.timer = CONFIG.RELOAD_FRAMES;  
     }  
   } else if (Gun.state === "reloading") {  
