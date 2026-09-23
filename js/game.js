@@ -18,6 +18,7 @@ Game.startLevel = function (levelNumber) {
   Game.levelNumber = levelNumber;
   Level.build(levelNumber);
   Player.reset();
+  Gun.reset();   // refill the magazine every level start
   Game.mode = "playing";
   Game.showMessage("");
 };
