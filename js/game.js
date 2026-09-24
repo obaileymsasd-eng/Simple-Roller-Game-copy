@@ -50,9 +50,15 @@ Game.update = function () {
   }
 
   if (Player.hasWon()) {
-    Game.mode = "won";
-    Game.showMessage("You made it. Press R to play again.");
-    return;
+      if (Player.hasWon()) {  
+    var nextLevel = Game.levelNumber + 1;  
+    if (nextLevel < Level.levels.length) {  
+      Game.startLevel(nextLevel);   // roll on to the next level  
+    } else {  
+      Game.mode = "won";  
+      Game.showMessage("You beat every level. Press R to start over.");  
+    }  
+    return;  
   }
 };
 
