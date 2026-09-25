@@ -50,7 +50,6 @@ Game.update = function () {
   }
 
   if (Player.hasWon()) {
-      if (Player.hasWon()) {  
     var nextLevel = Game.levelNumber + 1;  
     if (nextLevel < Level.levels.length) {  
       Game.startLevel(nextLevel);   // roll on to the next level  
