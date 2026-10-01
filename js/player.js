@@ -76,13 +76,15 @@ Player.update = function () {
   if (Player.x < 0) { Player.x = 0; }
 };
 
-// Did the player just touch something deadly?
-Player.isDead = function () {
-  var size = CONFIG.PLAYER_SIZE;
-  if (Collide.hitsSpike(Player.x, Player.y, size, size)) { return true; }
-  if (Player.y > CONFIG.CANVAS_H + 200) { return true; }   // fell off the world
-  return false;
-};
+// Did the player just touch something deadly?  
+Player.isDead = function () {  
+  var size = CONFIG.PLAYER_SIZE;  
+  if (Collide.hitsSpike(Player.x, Player.y, size, size)) { return true; }  
+  if (Player.y > CONFIG.CANVAS_H + 200) { return true; }   // fell off the world  
+  if (Enemy.playerCaught) { return true; }                 // a rogue spike got you  
+  return false;  
+};  
+
 
 // Did the player just reach the finish?
 Player.hasWon = function () {
