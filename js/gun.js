@@ -71,9 +71,15 @@ Bullets.update = function () {
     b.y = b.y + b.vy;  
     var keep = true;  
     // laser dies when it hits a block or a spike  
+      var victim = Enemy.hitTest(b.x, b.y, 8, 8);  
+    if (victim) {  
+      Enemy.damage(victim); // lasers hurt hunting rogue spikes  
+      keep = false;  
+    }  
     if (Collide.hitsSolid(b.x, b.y, 8, 8) || Collide.hitsSpike(b.x, b.y, 8, 8)) {  
       keep = false;  
     }  
+
     // laser dies when it leaves the visible screen  
     if (b.x < Draw.cameraX - 40 || b.x > Draw.cameraX + CONFIG.CANVAS_W + 40 ||  
         b.y < -40 || b.y > CONFIG.CANVAS_H + 40) {  

@@ -42,9 +42,10 @@ Draw.everything = function () {
   ctx.save();
   ctx.translate(-Draw.cameraX, 0);
 
-  Draw.world();
-  Bullets.draw();   // laser balls scroll with the world 
-  Draw.player();
+   Draw.world();  
+  Enemy.draw();     // hunting rogue spikes, drawn over the world  
+  Bullets.draw();   // laser balls scroll with the world   
+  Draw.player();  
 
   ctx.restore();
   Bullets.drawHud();  // ammo counter stays fixed on screen  

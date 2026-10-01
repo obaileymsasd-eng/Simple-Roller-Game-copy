@@ -38,5 +38,10 @@ var CONFIG = {
   //---the blaster-------------------------------------------------
    MAG_SIZE: 4,        // shots before you must reload  
   RELOAD_FRAMES: 120, // about 2 seconds (60 frames per second)  
-  BULLET_SPEED: 12    // how fast the laser ball travels  
+  BULLET_SPEED: 12,    // how fast the laser ball travels  
+    SPIKE_HP: 3,            // laser hits a rogue spike can take  
+  SPIKE_WAKE_DISTANCE: 160, // how close you must get before it wakes (4 tiles)  
+  SPIKE_SPEED: 2,         // hunting speed. player is 4, so you can outrun it  
+  SPIKE_HIT_FLASH: 10     // frames it flashes white after each hit  
+
 };
