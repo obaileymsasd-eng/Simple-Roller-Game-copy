@@ -103,7 +103,7 @@ Enemy.draw = function () {
     var e = Enemy.list[i];  
     if (e.state !== "hunting") { continue; }  
     if (e.flash > 0 && e.flash % 4 < 2) { continue; } // blink when hit  
-    ctx.fillStyle = "#000000";  
+    ctx.fillStyle = "#222";  
     ctx.beginPath();  
     ctx.moveTo(e.x, e.y + CONFIG.TILE);  
     ctx.lineTo(e.x + CONFIG.TILE / 2, e.y);  
