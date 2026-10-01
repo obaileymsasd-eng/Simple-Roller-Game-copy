@@ -61,4 +61,54 @@ Enemy.update = function () {
       }  
       // touching the player kills them  
       if (e.x < Player.x + size && e.x + CONFIG.TILE > Player.x &&  
-          e.y < Player.y
+          e.y < Player.y + size && e.y + CONFIG.TILE > Player.y) {  
+        Enemy.playerCaught = true;  
+      }  
+    }  
+  
+    if (e.flash > 0) { e.flash = e.flash - 1; }  
+  }  
+};  
+  
+// which hunting enemy, if any, is under this box? (used by bullets)  
+Enemy.hitTest = function (x, y, width, height) {  
+  for (var i = 0; i < Enemy.list.length; i++) {  
+    var e = Enemy.list[i];  
+    if (e.state !== "hunting") { continue; }  
+    if (e.x < x + width && e.x + CONFIG.TILE > x &&  
+        e.y < y + height && e.y + CONFIG.TILE > y) {  
+      return e;  
+    }  
+  }  
+  return null;  
+};  
+  
+// take one laser hit; die when out of health  
+Enemy.damage = function (e) {  
+  e.hp = e.hp - 1;  
+  e.flash = CONFIG.SPIKE_HIT_FLASH;  
+  if (e.hp <= 0) {  
+    var alive = [];  
+    for (var i = 0; i < Enemy.list.length; i++) {  
+      if (Enemy.list[i] !== e) { alive.push(Enemy.list[i]); }  
+    }  
+    Enemy.list = alive;  
+  }  
+};  
+  
+// draw only the hunting ones -- dormant spikes are drawn by the grid itself  
+Enemy.draw = function () {  
+  var ctx = Draw.ctx;  
+  for (var i = 0; i < Enemy.list.length; i++) {  
+    var e = Enemy.list[i];  
+    if (e.state !== "hunting") { continue; }  
+    if (e.flash > 0 && e.flash % 4 < 2) { continue; } // blink when hit  
+    ctx.fillStyle = "#000000";  
+    ctx.beginPath();  
+    ctx.moveTo(e.x, e.y + CONFIG.TILE);  
+    ctx.lineTo(e.x + CONFIG.TILE / 2, e.y);  
+    ctx.lineTo(e.x + CONFIG.TILE, e.y + CONFIG.TILE);  
+    ctx.closePath();  
+    ctx.fill();  
+  }  
+};  
